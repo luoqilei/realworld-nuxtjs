@@ -1,4 +1,4 @@
-const cookieParser = process.server ? require('cookieParser') : undefined
+const cookieparser = process.server ? require('cookieparser') : undefined
 // 为了防止在服务端渲染期间数据冲突
 export const state = () => {
     return {
@@ -20,7 +20,7 @@ export const actions = {
         let user = null
 
         if (req.headers.cookie) {
-            const parsed = cookieParser.parse(req.headers.cookie)
+            const parsed = cookieparser.parse(req.headers.cookie)
             try {
                 user = JSON.parse(parsed.user)
             } catch (error) {
